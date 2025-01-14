@@ -1,5 +1,18 @@
 import { readFileSync } from 'fs';
 
+const getColor = (req, res) => {
+    const random = req.query.random;
+
+    res.status(200);
+    if (random === "true") {
+        //"random" color
+        res.send("red");
+    } else {
+        //the default color
+        res.send("green");
+    }
+}
+
 const getResource1 =(req, res) => {
     res.status(200);
     res.send("Here is resource1");
@@ -18,10 +31,9 @@ const getCourses = (req, res) => {
     res.json(courses);
 }
 
-const exportedValues = {
-    getResource1: getResource1,
-    getResource2: getResource2,
-    getCourses: getCourses
+export default {
+    getResource1,
+    getResource2,
+    getCourses,
+    getColor
 }
-
-export default exportedValues;
