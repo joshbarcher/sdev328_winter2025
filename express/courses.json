@@ -1,0 +1,52 @@
+[
+    {
+      "id": "BIO101",
+      "name": "Introduction to Biology",
+      "description": "An introductory course covering the basics of cellular structure, genetics, evolution, and ecosystems."
+    },
+    {
+      "id": "CHEM202",
+      "name": "Organic Chemistry II",
+      "description": "A continuation of Organic Chemistry I, focusing on reaction mechanisms, synthesis, and spectroscopy."
+    },
+    {
+      "id": "PHYS150",
+      "name": "General Physics I",
+      "description": "Covers classical mechanics, including motion, forces, energy, and momentum, with laboratory experiments."
+    },
+    {
+      "id": "MATH230",
+      "name": "Linear Algebra",
+      "description": "Introduces matrix theory, vector spaces, determinants, eigenvalues, and eigenvectors."
+    },
+    {
+      "id": "CS101",
+      "name": "Introduction to Computer Science",
+      "description": "A beginner-level course covering basic programming concepts, data structures, and algorithms."
+    },
+    {
+      "id": "ENG205",
+      "name": "World Literature",
+      "description": "Explores classic and contemporary literary works from around the world, with an emphasis on cultural context."
+    },
+    {
+      "id": "HIST210",
+      "name": "Modern World History",
+      "description": "Examines major global events and trends from the 19th century to the present."
+    },
+    {
+      "id": "PSY220",
+      "name": "Cognitive Psychology",
+      "description": "Focuses on mental processes including perception, memory, reasoning, and problem-solving."
+    },
+    {
+      "id": "ECON310",
+      "name": "Advanced Microeconomics",
+      "description": "Analyzes market structures, consumer behavior, and game theory in microeconomic contexts."
+    },
+    {
+      "id": "ART201",
+      "name": "Art History: Renaissance to Modern",
+      "description": "Covers major artistic movements from the Renaissance period to the modern era, focusing on key works and artists."
+    }
+  ]
