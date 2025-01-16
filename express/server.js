@@ -10,6 +10,7 @@ dotenv.config({
 
 const app = express();
 
+//mount the router
 app.use("/server/v1", router);
 app.use("/server/msg", msgRouter);
 

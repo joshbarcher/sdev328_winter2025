@@ -1,12 +1,15 @@
 import { readFileSync } from 'fs';
 
 const getColor = (req, res) => {
-    const random = req.query.random;
+    const { random, grayscale, uid, lastaccessed } = req.query;
+
+    console.log(req.query);
 
     res.status(200);
     if (random === "true") {
-        //"random" color
-        res.send("red");
+        const colors = ["white", "orange", "blue", "red", "teal"];
+        const randomColor = colors.find(color => Math.random() > 0.5);
+        res.send(randomColor);
     } else {
         //the default color
         res.send("green");

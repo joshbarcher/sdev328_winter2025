@@ -5,7 +5,8 @@ const {
     getResource1, 
     getResource2, 
     getCourses, 
-    getColor } = controller;
+    getColor 
+} = controller;
 
 const router = express.Router();
 
