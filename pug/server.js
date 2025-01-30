@@ -2,6 +2,8 @@ import express from 'express';
 
 const app = express();
 
+app.use(express.static('./public'));
+
 //configure our templating language
 app.set("view engine", "pug");
 app.set("views", "./views");
