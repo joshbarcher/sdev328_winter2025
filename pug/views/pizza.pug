@@ -1,16 +1,27 @@
 html 
     head 
         title= title
-        meta
+        meta(charset="utf-8")
     body
         h1= title
         p Now I'm hungry for pizza 
-        section 
+        section(id="details" class="important" title="Important!")
+
+            //comment!
             h2 Pizza Details 
-            ul 
+            ul.info 
                 li Type: #{type}
                 li Ingredients: #{ingredients}
                 li Cost: $#{cost}
                 li Comments: #{comments} 
+
+            //An example
+            p 
+                | Here is a long paragraph 
+                | about a pizza that 
+                strong I like!
+                | Super cool!
+            
+            p Here is a long paragraph about a pizza that #[strong I like!] Super cool! Can't wait for #[a(href="https://www.modpizza.com" target="_blank") lunch].
         footer 
             p Welcome!
