@@ -1,24 +1,32 @@
 extends sharedLayout.pug 
 
+mixin renderBook(singleBook, showPages)
+    div.book 
+        h2= singleBook.title
+        p By: #{singleBook.author} 
+        if showPages === true
+            p #{singleBook.pages} pages 
+        p= singleBook.synopsis.toUpperCase()
+        p= singleBook.genre
+        p ISBN: #{singleBook.ISBN}
+
 block links 
     link(rel="stylesheet" href="home.css")
-
+    
 block content
     main
         section
             h1 Main Page
             p We believe innovation drives progress. Since our founding, we've been dedicated to delivering cutting-edge solutions that simplify lives, empower businesses, and shape the future. Whether you're a global enterprise or a local startup, we're here to help you achieve your goals with tools that inspire confidence and creativity.
         
+        section#favorite 
+            +renderBook(favorite, false)
+
         - const favoriteBook = "Fifth Season";
         section#books 
-            p My favorite book is #{favoriteBook}
+            //p My favorite book is #{favoriteBook}
             if books.length > 0 
                 each book in books
-                    div.book 
-                        h2= book.title
-                        p By: #{book.author} 
-                        p #{book.pages} pages 
-                        p= book.synopsis
-                        p= book.genre
+                    +renderBook(book, true)
             else 
                 p No book records!

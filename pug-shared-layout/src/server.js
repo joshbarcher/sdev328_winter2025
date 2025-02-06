@@ -16,7 +16,8 @@ const author = "<Your Name>";
 app.get("/", (req, res) => {
     res.render('home', { 
         author,
-        books: []
+        books: books,
+        favorite: books[8]
     })}
 );
 app.get("/about", (req, res) => {res.render('about', { author })});
