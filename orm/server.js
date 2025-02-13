@@ -116,7 +116,7 @@ await PetSchema.bulkCreate([
 ])
 
 const pets = await PetSchema.findAll();
-console.log(pets);
+// console.log(pets);
 
 const PORT = 3000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));

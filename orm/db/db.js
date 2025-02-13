@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import chalk from 'chalk';
 
 const host = "localhost";
-const port = 3306;
+const port = 3307;
 const database = "pets";
 const user = "jarcher";
 const password = "F6CraKpFjfbIo1";
