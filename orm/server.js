@@ -5,7 +5,7 @@ const app = express();
 
 //this is a promise as well
 await PetSchema.create({
-    name: "buddy",
+    name: "bud",
     type: "dog",
     age: 4,
     adoptable: false,
@@ -36,7 +36,7 @@ await PetSchema.bulkCreate([
     {
       "name": "Charlie",
       "type": "Dog",
-      "age": 3,
+      "age": -3,
       "adoptable": true,
       "bio": "A friendly and playful golden retriever who loves fetch.",
       "birthDate": "2021-05-14"
@@ -120,3 +120,5 @@ const pets = await PetSchema.findAll();
 
 const PORT = 3000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
+
+console.log("hello, world")
