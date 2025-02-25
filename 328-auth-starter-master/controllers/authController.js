@@ -28,11 +28,22 @@ const logout = (req, res) => {
 
 //middleware to protect routes
 const isLoggedIn = (req, res, next) => {
-
+    if (req.user) {
+        return next(); //logged in
+    }
+    res.redirect("/login"); //logged out
 }
 
-const hasRole = (req, res, next) => {
-
+//role has the specific role for a user on the website
+const hasRole = role => {
+    //return a middleware function (with role in scope)
+    return (req, res, next) => {
+        //verify the role
+        if (req.user.role === role) {
+            return next(); //move to the next middleware
+        }
+        res.redirect("/login?error=Cannot Access Page");
+    }
 }
 
 export default { registerPage, register, loginPage, login, logout, isLoggedIn, hasRole }

@@ -4,10 +4,6 @@ import authController from '../controllers/authController.js';
 
 const authRouter = Router();
 
-//access pages
-authRouter.get('/admin', pageController.adminPage);     //displays admin (restricted) content
-authRouter.get('/user', pageController.userPage);    //displays user content
-
 //register
 authRouter.get('/register', authController.registerPage);
 authRouter.post('/register', authController.register);
@@ -18,5 +14,15 @@ authRouter.post('/login', authController.login);
 
 //logout
 authRouter.post('/logout', authController.logout);
+
+//make sure the user is logged in for any of the routes below...
+authRouter.use(authController.isLoggedIn);
+
+//access pages
+authRouter.get('/admin', authController.hasRole("admin"), pageController.adminPage);     //displays admin content
+authRouter.get('/user', pageController.userPage);    //displays user content
+// authRouter.get("/guest", null);
+// authRouter.get("/settings", null);
+//..
 
 export default authRouter;
