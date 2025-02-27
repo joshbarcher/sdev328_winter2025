@@ -1,4 +1,4 @@
-[
+export default [
     {
         "name": "Spaghetti Carbonara",
         "ingredients": ["spaghetti", "eggs", "parmesan cheese", "bacon"],
