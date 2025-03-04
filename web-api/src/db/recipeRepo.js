@@ -8,3 +8,8 @@ export const getAllRecipes = async () => {
 export const getRecipeById = async (recipeId) => {
     return await RecipeSchema.findByPk(recipeId);
 }
+
+//C in CRUD - create
+export const addRecipe = async (recipe) => {
+    return await RecipeSchema.create(recipe);
+}

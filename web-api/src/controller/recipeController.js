@@ -24,3 +24,14 @@ export const recipeById = async (req, res) => {
         })
     }
 }
+
+export const addRecipe = async (req, res) => {
+    //more on this in a moment...
+    const recipe = req.body;
+    const addedRecipe = await dataLayer.addRecipe(recipe);
+
+    res.status(200).json({
+        message: "success",
+        data: addedRecipe
+    })
+}
