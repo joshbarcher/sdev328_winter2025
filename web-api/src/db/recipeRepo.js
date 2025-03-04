@@ -13,3 +13,8 @@ export const getRecipeById = async (recipeId) => {
 export const addRecipe = async (recipe) => {
     return await RecipeSchema.create(recipe);
 }
+
+//U in CRUD - update
+export const updateRecipe = async (recipe) => {
+    
+}

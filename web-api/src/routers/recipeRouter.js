@@ -7,5 +7,6 @@ const router = express.Router();
 router.get("/recipes", controller.recipes);
 router.get("/recipes/:recipeId", controller.recipeById);
 router.post("/recipes", controller.addRecipe);
+router.put("/recipes", controller.updateRecipe);
 
 export default router;
