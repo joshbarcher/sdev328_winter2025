@@ -7,7 +7,10 @@ const Schema = sequelize.define("recipe", {
         primaryKey: true,
         autoIncrement: true
     },
-    name: DataTypes.STRING,
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     ingredients: DataTypes.STRING,
     cookingTime: DataTypes.STRING,
     instructions: DataTypes.STRING

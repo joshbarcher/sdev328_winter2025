@@ -16,5 +16,18 @@ export const addRecipe = async (recipe) => {
 
 //U in CRUD - update
 export const updateRecipe = async (recipe) => {
-    
+    return await RecipeSchema.update(recipe, {
+        where: {
+            recipeId: recipe.recipeId
+        }
+    })
+}
+
+//D in CRUD - delete
+export const deleteRecipe = async (recipeId) => {
+    return await RecipeSchema.destroy({
+        where: {
+            recipeId
+        }
+    })
 }

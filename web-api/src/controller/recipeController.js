@@ -44,12 +44,29 @@ export const addRecipe = async (req, res) => {
 export const updateRecipe = async (req, res) => {
     const updatedRecipe = req.body;
     updatedRecipe.ingredients = JSON.stringify(updatedRecipe.ingredients);
-    const savedRecipe = await dataLayer.updateRecipe(updatedRecipe);
+    const [ affectedRows ] = await dataLayer.updateRecipe(updatedRecipe);
 
-    if (savedRecipe) {
+    if (affectedRows) {
         res.status(200).json({
             message: "success",
-            data: savedRecipe
+            data: affectedRows
+        })
+    } else {
+        res.status(404).json({
+            message: "failure - recipe not found",
+            data: null
+        })
+    }
+}
+
+export const deleteRecipe = async (req, res) => {
+    const { recipeId } = req.params;
+    const result = await dataLayer.deleteRecipe(recipeId);
+
+    if (result) {
+        res.status(200).json({
+            message: "success",
+            data: result
         })
     } else {
         res.status(404).json({
