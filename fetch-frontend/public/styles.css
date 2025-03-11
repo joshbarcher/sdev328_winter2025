@@ -14,3 +14,27 @@ body {
         background-color: beige;
     }
 }
+
+table, tr, th, td {
+    border: 1px solid black;
+}
+
+table {
+    margin: 20px;
+    border-collapse: collapse;
+    background-color: white;
+
+    tr {
+        &:nth-child(even) {
+            background-color: lightgray;
+        }
+
+        th {
+
+        }
+
+        td {
+
+        }
+    }
+}
