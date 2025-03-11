@@ -39,7 +39,6 @@ function renderRecipes(recipes) {
     */
 
     const list = document.querySelector("#recipe-list");
-
     for (const recipe of recipes) {
         console.log(recipe);
         const section = document.createElement("section");
@@ -55,4 +54,36 @@ function renderRecipes(recipes) {
 
         list.appendChild(section);
     }
+
+    const table = document.querySelector("#recipe-table");
+    const headers = ["Name", "Ingredients", "Cook Time", "Instructions"];
+
+    //create headers
+    let tr = document.createElement("tr");
+    for (const header of headers) {
+        const td = document.createElement("td");
+        td.textContent = header;
+
+        tr.appendChild(td);
+    }
+    table.appendChild(tr);
+
+    //create the rows
+    for (const recipe of recipes) {
+        const row = document.createElement("tr");
+
+        const values = [recipe.name, recipe.ingredients, recipe.cookingTime, recipe.instructions];
+
+        for (const value of values) {
+            addCell(row, value);
+        }
+
+        table.appendChild(row);
+    }
+}
+
+function addCell(row, value) {
+    const td = document.createElement("td");
+    td.textContent = value;
+    row.appendChild(td);
 }
