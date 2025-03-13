@@ -30,7 +30,8 @@ async function handleForm(event) {
     const response = await fetch(uri, config);
     const json = await response.json();
 
-    console.log(json);
+    const list = document.querySelector("#recipe-list");
+    renderRecipe(json.data, list);
 }
 
 async function loadRecipes() {
@@ -51,19 +52,7 @@ async function loadRecipes() {
 function renderRecipes(recipes) {
     const list = document.querySelector("#recipe-list");
     for (const recipe of recipes) {
-        console.log(recipe);
-        const section = document.createElement("section");
-        const h2 = document.createElement("h2");
-        const p = document.createElement("p");
-
-        h2.textContent = recipe.name;
-        p.textContent = recipe.instructions;
-        section.className = "recipe";
-
-        section.appendChild(h2);
-        section.appendChild(p);
-
-        list.appendChild(section);
+        renderRecipe(recipe, list);
     }
 
     const table = document.querySelector("#recipe-table");
@@ -91,6 +80,21 @@ function renderRecipes(recipes) {
 
         table.appendChild(row);
     }
+}
+
+function renderRecipe(recipe, list) {
+    const section = document.createElement("section");
+    const h2 = document.createElement("h2");
+    const p = document.createElement("p");
+
+    h2.textContent = recipe.name;
+    p.textContent = recipe.instructions;
+    section.className = "recipe";
+
+    section.appendChild(h2);
+    section.appendChild(p);
+
+    list.appendChild(section);
 }
 
 function addCell(row, value) {

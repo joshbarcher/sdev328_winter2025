@@ -15,6 +15,28 @@ body {
     }
 }
 
+form {
+    width: 500px;
+    margin: auto;
+    margin-bottom: 50px;
+
+    label {
+        display: inline-block;
+        width: 150px;
+    }
+
+    input, textarea {
+        padding: 4px;
+        border: 1px solid black;
+        border-radius: 4px;
+        width: 200px;
+    }
+
+    input[type="radio"] {
+        display: block;
+    }
+}
+
 table, tr, th, td {
     border: 1px solid black;
 }
