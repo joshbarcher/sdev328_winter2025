@@ -35,7 +35,7 @@ export const addRecipe = async (req, res) => {
 
     const addedRecipe = await dataLayer.addRecipe(recipe);
 
-    res.status(200).json({
+    res.status(201).json({
         message: "success",
         data: addedRecipe
     })

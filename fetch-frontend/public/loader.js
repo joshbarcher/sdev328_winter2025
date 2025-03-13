@@ -1,5 +1,36 @@
 window.onload = async () => {
     await loadRecipes();
+
+    //handle the form submit
+    document.querySelector("button").onclick = handleForm;
+}
+
+async function handleForm(event) {
+    event.preventDefault(); //stop the default behavior of the event
+
+    //read our form values
+    const newRecipe = {
+        name: document.querySelector("#name").value,
+        ingredients: document.querySelector("#ingredients").value,
+        cookingTime: document.querySelector("#cookingTime").value,
+        instructions: document.querySelector("#instructions").value
+    }
+    
+    //make a POST request
+    const uri = "http://localhost:3000/recipes";
+    const config = {
+        method: "post",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newRecipe)
+    }
+
+    const response = await fetch(uri, config);
+    const json = await response.json();
+
+    console.log(json);
 }
 
 async function loadRecipes() {
@@ -15,29 +46,9 @@ async function loadRecipes() {
     console.log(json);
 
     renderRecipes(json.data);
-
-    // fetch(uri, config)
-    //     .then((response) => {
-    //         return response.json();
-    //     })
-    //     .then((json) => {
-    //         //do something with the JSON
-    //     })
 }
 
 function renderRecipes(recipes) {
-    /* <section class="recipe">
-                <h2>Title</h2>
-                <p>Instructions</p>
-            </section> */
-
-    /* 
-        <section class="recipe">
-            <h2>Title</h2>
-            <p>Instructions</p>
-        </section>
-    */
-
     const list = document.querySelector("#recipe-list");
     for (const recipe of recipes) {
         console.log(recipe);
